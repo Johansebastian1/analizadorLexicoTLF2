@@ -1,8 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
-import mundo.*;
+
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa la categoria sintactica Declaración de variable
@@ -24,18 +24,19 @@ public class DeclaracionVariable
 	/**
 	 * Atributo que indica el acceso indicado para la variable
 	 */
-	private Visibilidad acceso;
+	private Visibilidad visibilidad;
 	
 	/**
 	 * Metodo constructor de la clase
+	 * @param visibilidad 
 	 * @param identificadorVariable, El identificador de la variable
 	 * @param tipoDato, El tipo de datos que representa la variable
 	 * @param acceso, El acceso indicado para la variable
 	 */
-	public DeclaracionVariable(Visibilidad acceso,SimboloLexico tipoDato,SimboloLexico identificadorVariable) {
+	public DeclaracionVariable(Visibilidad visibiliad, SimboloLexico tipoDato, SimboloLexico identificadorVariable, Visibilidad visibilidad) {
 		this.identificadorVariable = identificadorVariable;
 		this.tipoDato = tipoDato;
-		this.acceso = acceso;
+		this.visibilidad = visibilidad;
 	}
 	
 	/**
@@ -44,15 +45,23 @@ public class DeclaracionVariable
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracionVariable");
-		raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorVariable.getLexema()));
-		if(tipoDato!=null){
-			DefaultMutableTreeNode r=new DefaultMutableTreeNode("TipoDato");
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Declaracion Variable");
+		
+		if(identificadorVariable != null){
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorVariable.getLexema()));
+		}
+		
+		DefaultMutableTreeNode r=new DefaultMutableTreeNode("TipoDato");
+		
+		if(tipoDato != null){
 			r.add(new DefaultMutableTreeNode("nombre:"+tipoDato.getLexema()));
 			raiz.add(r);
 		}
-		if(acceso!=null)
-			raiz.add(acceso.getArbolVisual());
+		
+		if(visibilidad != null){
+			raiz.add(visibilidad.getArbolVisual());
+		}
+		
 		return raiz;
 	}
 	
@@ -71,9 +80,7 @@ public class DeclaracionVariable
 //	}
 //	
 	
-	
 	//Getters And Setter
-
 	public SimboloLexico getTipoDato() {
 		return tipoDato;
 	}
@@ -83,22 +90,25 @@ public class DeclaracionVariable
 	}
 
 	public void setIdentificadorVariable(SimboloLexico identificadorVariable) {
-		identificadorVariable = identificadorVariable;
+		this.identificadorVariable = identificadorVariable;
 	}
 
 	public void setTipoDato(SimboloLexico tipoDato) {
 		this.tipoDato = tipoDato;
 	}
 
-	public Visibilidad getAcceso() {
-		return acceso;
+	/**
+	 * @return the visibilidad
+	 */
+	public Visibilidad getVisibilidad() {
+		return visibilidad;
 	}
 
-	public void setAcceso(Visibilidad acceso) {
-		this.acceso = acceso;
+	/**
+	 * @param visibilidad the visibilidad to set
+	 */
+	public void setVisibilidad(Visibilidad visibilidad) {
+		this.visibilidad = visibilidad;
 	}
-
-
 	
-
 }

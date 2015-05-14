@@ -2,8 +2,6 @@ package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import mundo.*;
-
 /**
  * Clase que representa el listado de importaciones del codigo
  * @author Mateo Toquica-Angie Maldonado 
@@ -22,8 +20,12 @@ public class Imprimir implements Sentencia
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("imprimir");
-		raiz.add(dato.getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Imprimir");
+		
+		if(dato != null){
+			raiz.add(dato.getArbolVisual());
+		}
+		
 		return raiz;
 	}
 

@@ -1,13 +1,12 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa una instancia de asignación del codigo
- * @author Carlos Daniel Londoño Torres - Camilo Andres Martinez Castaño - Jorge Hernan Castaño Barraza - Christian Giovani Cachaya 
+ * @author 
  *
  */
 public class InstanciaAsignacion implements Sentencia
@@ -33,8 +32,7 @@ public class InstanciaAsignacion implements Sentencia
 	 * @param dato, El dato asignado
 	 * @param expresion, La expresión de asignación
 	 */
-	public InstanciaAsignacion(SimboloLexico identificadorVariable, Dato dato,
-			ExpresionAritmetica expresion) 
+	public InstanciaAsignacion(SimboloLexico identificadorVariable, Dato dato, ExpresionAritmetica expresion) 
 	{
 		this.identificadorVariable = identificadorVariable;
 		this.dato = dato;
@@ -47,12 +45,18 @@ public class InstanciaAsignacion implements Sentencia
 	 */
 	public DefaultMutableTreeNode getArbolVisual() 
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("instanciaAsiganacion");
-		raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorVariable.getLexema()));
-		if(dato!=null)
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Instancia Asignacion");
+		
+		raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorVariable.getLexema()));
+		
+		if(dato != null){
 			raiz.add(dato.getArbolVisual());
-		else if(expresion!=null) 
+		}	
+		
+		if(expresion != null){ 
 			raiz.add(expresion.getArbolVisual());
+		}
+		
 		return raiz;
 	}
 	

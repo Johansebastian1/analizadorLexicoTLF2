@@ -1,9 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa la importacion en el codigo
@@ -32,8 +31,11 @@ public class Importacion
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("importacion");
-		raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorImportacion.getLexema()));
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Importacion");
+		
+		if(identificadorImportacion != null){
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorImportacion.getLexema()));
+		}	
 		return raiz;
 	}
 	
