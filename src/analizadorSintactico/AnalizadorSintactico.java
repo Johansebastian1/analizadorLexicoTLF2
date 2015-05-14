@@ -2,9 +2,35 @@ package analizadorSintactico;
 
 import java.util.ArrayList;
 
-import categoriaSintactica.*;
-import mundo.AnalizadorLexico;
 import mundo.SimboloLexico;
+import categoriaSintactica.BloqueImportaciones;
+import categoriaSintactica.BloquePaquetes;
+import categoriaSintactica.BloqueSentencias;
+import categoriaSintactica.Dato;
+import categoriaSintactica.Datos;
+import categoriaSintactica.Declaracion;
+import categoriaSintactica.DeclaracionClase;
+import categoriaSintactica.DeclaracionFuncion;
+import categoriaSintactica.DeclaracionFunciones;
+import categoriaSintactica.DeclaracionVariable;
+import categoriaSintactica.DeclaracionVariables;
+import categoriaSintactica.Expresion;
+import categoriaSintactica.ExpresionAritmetica;
+import categoriaSintactica.Factor;
+import categoriaSintactica.Importacion;
+import categoriaSintactica.Imprimir;
+import categoriaSintactica.InstanciaAsignacion;
+import categoriaSintactica.InvocacionFuncion;
+import categoriaSintactica.Paquete;
+import categoriaSintactica.Parametro;
+import categoriaSintactica.Parametros;
+import categoriaSintactica.Retorno;
+import categoriaSintactica.Sentencia;
+import categoriaSintactica.Termino;
+import categoriaSintactica.TipoDato;
+import categoriaSintactica.UnidadCompilacion;
+import categoriaSintactica.Variable;
+import categoriaSintactica.Visibilidad;
 
 public class AnalizadorSintactico {
 	
@@ -504,7 +530,7 @@ public class AnalizadorSintactico {
 			if(tokenActual.getToken().equals("Terminal"))
 			{
 				darSiguienteToken();
-				declaracionVariable=new DeclaracionVariable( tipovisibilidad, tipoDato,IVariable);
+				declaracionVariable=new DeclaracionVariable( tipovisibilidad, tipoDato, IVariable);
 			}
 			else
 			{

@@ -1,9 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa un listado de parametros
@@ -12,9 +11,9 @@ import mundo.*;
  */
 public class TipoDato
 {
-	/**
-	 * Simbolo lexico que representa el tipo de dato(entero o reales)
-	 */
+		/**
+		 * Simbolo lexico que representa el tipo de dato(entero o reales)
+		 */
 		private SimboloLexico tipoDato;
 
 		/**
@@ -26,16 +25,16 @@ public class TipoDato
 			this.tipoDato =tipoDato;
 		}
 
-		
-
 		/**
 		 * Metodo encargado de crear el arbol para la visualizacion a la hora de compilar
 		 * @return raiz,  El Arbol que representa esta categoria sintactica
 		 */
 		public DefaultMutableTreeNode getArbolVisual()
 		{
-			DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("tipoDato");
-			raiz.add(new DefaultMutableTreeNode("nombre:"+tipoDato.getLexema()));
+			DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Tipo Dato");
+			if(tipoDato != null){
+				raiz.add(new DefaultMutableTreeNode("Nombre:" + tipoDato.getLexema()));
+			}
 			return raiz;
 		}
 		

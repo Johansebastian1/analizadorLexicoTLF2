@@ -1,9 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa un paquete del codigo
@@ -32,8 +31,12 @@ public class Paquete
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Pack");
-		raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorPaquete.getLexema()));
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Paquete");
+		
+		if(identificadorPaquete != null){
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorPaquete.getLexema()));
+		}
+		
 		return raiz;
 	}
 	
@@ -47,7 +50,6 @@ public class Paquete
 		return code;
 	}
 	
-	
 	//Getters And Setters
 	public SimboloLexico getIdentificadorPaquete() {
 		return identificadorPaquete;
@@ -55,6 +57,4 @@ public class Paquete
 	public void setIdentificadorPaquete(SimboloLexico identificadorPaquete) {
 		this.identificadorPaquete = identificadorPaquete;
 	}
-
-	
 }

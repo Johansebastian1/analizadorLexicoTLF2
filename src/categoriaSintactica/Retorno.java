@@ -2,7 +2,6 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
 
 /**
@@ -26,18 +25,18 @@ public class Retorno implements Sentencia
 		this.datoRetornar = datoRetornar;	
 	}
 
-	
 	/**
 	 * Metodo encargado de crear el arbol para la visualizacion a la hora de compilar
 	 * @return raiz,  El Arbol que representa esta categoria sintactica
 	 */
 	public DefaultMutableTreeNode getArbolVisual() 
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("retorno");
-		raiz.add(datoRetornar.getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Retorno");
+		if(datoRetornar != null){
+			raiz.add(datoRetornar.getArbolVisual());
+		}
 		return raiz;
 	}
-	
 	
 	/**
 	 * Metodo encargado de crear el codigo java

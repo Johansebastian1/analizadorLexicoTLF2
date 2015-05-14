@@ -1,9 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa un parametro en el codigo

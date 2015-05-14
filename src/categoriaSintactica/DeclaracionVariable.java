@@ -28,12 +28,11 @@ public class DeclaracionVariable
 	
 	/**
 	 * Metodo constructor de la clase
-	 * @param visibilidad 
 	 * @param identificadorVariable, El identificador de la variable
 	 * @param tipoDato, El tipo de datos que representa la variable
 	 * @param acceso, El acceso indicado para la variable
 	 */
-	public DeclaracionVariable(Visibilidad visibiliad, SimboloLexico tipoDato, SimboloLexico identificadorVariable, Visibilidad visibilidad) {
+	public DeclaracionVariable(Visibilidad visibiliad, SimboloLexico tipoDato, SimboloLexico identificadorVariable) {
 		this.identificadorVariable = identificadorVariable;
 		this.tipoDato = tipoDato;
 		this.visibilidad = visibilidad;

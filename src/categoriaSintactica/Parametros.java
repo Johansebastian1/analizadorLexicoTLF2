@@ -3,9 +3,6 @@ package categoriaSintactica;
 import java.util.ArrayList;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
-
-import mundo.*;
 
 /**
  * Clase que representa un listado de parametros
@@ -28,18 +25,16 @@ public class Parametros
 		this.parametros=parametros;
 	}
 
-	
-	
 	/**
 	 * Metodo encargado de crear el arbol para la visualizacion a la hora de compilar
 	 * @return raiz,  El Arbol que representa esta categoria sintactica
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("parametros");
-		for (int i = 0; i < parametros.size(); i++) 
-		{
-			raiz.add(parametros.get(i).getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Parametros");
+		
+		for (Parametro iterable : parametros) {
+			raiz.add(iterable.getArbolVisual());
 		}
 		return raiz;
 	}
