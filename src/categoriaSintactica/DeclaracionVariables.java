@@ -3,7 +3,6 @@ package categoriaSintactica;
 import java.util.ArrayList;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 /**
  * Clase que representa todas las declaraciones de variables hechas en el codigo
  * @author Mateo Toquica - Angie Maldonado 
@@ -32,10 +31,11 @@ public class DeclaracionVariables
 	public DefaultMutableTreeNode getArbolVisual()
 	{
 		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracionVariables");
-		for (int i = 0; i < variables.size(); i++) 
-		{
-			raiz.add(variables.get(i).getArbolVisual());
+		
+		for (DeclaracionVariable iterable : variables) {
+			raiz.add(iterable.getArbolVisual());
 		}
+		
 		return raiz;
 	}
 	
@@ -62,9 +62,6 @@ public class DeclaracionVariables
 	public void setVariables(ArrayList<DeclaracionVariable> variables) {
 		this.variables = variables;
 	}
-
-	
-	
 	
 }
 

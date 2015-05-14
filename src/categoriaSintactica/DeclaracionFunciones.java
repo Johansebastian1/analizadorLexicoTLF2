@@ -3,11 +3,10 @@ package categoriaSintactica;
 import java.util.ArrayList;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import mundo.*;
 
 /**
  * Clase que representa todas las declaraciones de funciones hechas en un codigo
- * @author Carlos Daniel Londoño Torres - Camilo Andres Martinez Castaño - Jorge Hernan Castaño Barraza - Christian Giovani Cachaya 
+ * @author Carlos
  *
  */
 public class DeclaracionFunciones 
@@ -32,15 +31,15 @@ public class DeclaracionFunciones
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracionfunciones");
-		for (int i = 0; i < funciones.size(); i++) 
-		{
-			raiz.add(funciones.get(i).getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Declaracion Funciones");
+	
+		for (DeclaracionFuncion iterable : funciones) {
+			raiz.add(iterable.getArbolVisual());
 		}
+		
 		return raiz;
 	}
 
-	
 	//Getters And Setters
 	public ArrayList<DeclaracionFuncion> getfunciones() {
 		return funciones;
@@ -49,7 +48,6 @@ public class DeclaracionFunciones
 	public void setfunciones(ArrayList<DeclaracionFuncion> funciones) {
 		this.funciones = funciones;
 	}
-	
 	
 }
 

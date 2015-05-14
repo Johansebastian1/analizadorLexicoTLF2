@@ -4,7 +4,6 @@ package categoriaSintactica;
 import java.util.ArrayList;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
 /**
  * Clase que representa el listado de importaciones del codigo
@@ -33,11 +32,12 @@ public class BloqueImportaciones
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("importaciones");
-		for (int i = 0; i < importaciones.size(); i++) 
-		{
-			raiz.add(importaciones.get(i).getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Importaciones");
+		
+		for (Importacion iterable : importaciones) {
+			raiz.add(iterable.getArbolVisual());
 		}
+		
 		return raiz;
 	}
 	
@@ -64,8 +64,5 @@ public class BloqueImportaciones
 	public void setImportaciones(ArrayList<Importacion> importaciones) {
 		this.importaciones = importaciones;
 	}
-
-	
-	
 	
 }

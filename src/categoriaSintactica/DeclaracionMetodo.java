@@ -1,9 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa la categoria sintactica Declaración de metodo
@@ -35,7 +34,7 @@ public class DeclaracionMetodo
 	/**
 	 * Atributo que representa las sentencias hechas en la funcion
 	 */
-	private BloqueSentencias Sentencias;
+	private BloqueSentencias sentencias;
 	
 	/**
 	 * Constructor de la clase declaración funcion
@@ -52,7 +51,7 @@ public class DeclaracionMetodo
 		this.parametros = parametros;
 		this.tipoRetorno = tipoRetorno;
 		this.visibilidad = visibilidad;
-		Sentencias = sentencias;
+		this.sentencias = sentencias;
 	}
 
 	/**
@@ -61,14 +60,31 @@ public class DeclaracionMetodo
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracionfuncion");
-		raiz.add(visibilidad.getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Declaracion Funcion");
+		
+		if(visibilidad != null){
+			raiz.add(visibilidad.getArbolVisual());
+		}
+		
 		DefaultMutableTreeNode r=new DefaultMutableTreeNode("Tipo Retorno");
-		r.add(new DefaultMutableTreeNode("nombre:"+tipoRetorno.getLexema()));
-		raiz.add(r);
-		raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorfuncion.getLexema()));
-		raiz.add(parametros.getArbolVisual());
-		raiz.add(Sentencias.getArbolVisual());
+		
+		if(tipoRetorno != null){
+			r.add(new DefaultMutableTreeNode("Nombre:" + tipoRetorno.getLexema()));
+			raiz.add(r);
+		}
+		
+		if(identificadorfuncion != null){
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorfuncion.getLexema()));
+		}
+		
+		if(parametros != null){
+			raiz.add(parametros.getArbolVisual());
+		}
+		
+		if(sentencias != null){
+			raiz.add(sentencias.getArbolVisual());
+		}
+		
 		return raiz;
 	}	
 	
@@ -105,13 +121,11 @@ public class DeclaracionMetodo
 	}
 
 	public BloqueSentencias getSentencias() {
-		return Sentencias;
+		return sentencias;
 	}
 
 	public void setSentencias(BloqueSentencias sentencias) {
-		Sentencias = sentencias;
+		this.sentencias = sentencias;
 	}
-
-
 	
 }

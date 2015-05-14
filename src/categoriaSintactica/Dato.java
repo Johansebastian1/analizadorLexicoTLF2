@@ -1,7 +1,6 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
 import mundo.SimboloLexico;
 
@@ -32,8 +31,11 @@ public class Dato
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("dato");
-		raiz.add(new DefaultMutableTreeNode("nombre:"+dato.getLexema()));
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Dato");
+		
+		if(dato != null){
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + dato.getLexema()));
+		}
 		return raiz;
 	}
 	
@@ -56,7 +58,5 @@ public class Dato
 	public void setDato(SimboloLexico dato) {
 		this.dato = dato;
 	}
-
-	
 
 }

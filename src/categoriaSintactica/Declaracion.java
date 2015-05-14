@@ -1,9 +1,6 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
-
-import mundo.*;
 
 /**
  * Clase que representa la categoria sintactica Declaración
@@ -39,7 +36,7 @@ public class Declaracion
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracion");
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Declaracion");
 		if(variables != null)
 		{
 			raiz.add(variables.getArbolVisual());
@@ -68,8 +65,4 @@ public class Declaracion
 		this.metodos = metodos;
 	}
 
-
-	
-	
-	
 }

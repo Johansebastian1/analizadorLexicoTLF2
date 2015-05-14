@@ -1,9 +1,8 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa un listado de parametros
@@ -12,9 +11,9 @@ import mundo.*;
  */
 public class Visibilidad 
 {
-	/**
-	 * Simbolo lexico que representa el tipo de acceso(publico o privado)
-	 */
+		/**
+	 	* Simbolo lexico que representa el tipo de acceso(publico o privado)
+	 	*/
 		private SimboloLexico visibilidad;
 
 		/**
@@ -26,17 +25,15 @@ public class Visibilidad
 			this.visibilidad = visibilidad;
 		}
 
-		
-
 		/**
 		 * Metodo encargado de crear el arbol para la visualizacion a la hora de compilar
 		 * @return raiz,  El Arbol que representa esta categoria sintactica
 		 */
 		public DefaultMutableTreeNode getArbolVisual()
 		{
-			DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("visibilidad");
+			DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Visibilidad");
 			if(visibilidad != null){
-				raiz.add(new DefaultMutableTreeNode("nombre:"+visibilidad.getLexema()));
+				raiz.add(new DefaultMutableTreeNode("Nombre:" + visibilidad.getLexema()));
 			}
 			return raiz;
 		}

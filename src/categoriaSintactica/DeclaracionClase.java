@@ -1,11 +1,8 @@
 package categoriaSintactica;
 
-import java.util.ArrayList;
-
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa la categoria sintactica Declaración de clase
@@ -28,7 +25,7 @@ public class DeclaracionClase
 	/**
 	 * Atributo que indica el acceso a la clase, publico o privado
 	 */
-	private Visibilidad acceso;
+	private Visibilidad visibilidad;
 	
 	/**
 	 * Constructor de clase
@@ -36,10 +33,10 @@ public class DeclaracionClase
 	 * @param identificadorClase, identificador indicado
 	 * @param acceso,Tipo de acceso creado
 	 */
-	public DeclaracionClase(Declaracion declaraciones, SimboloLexico identificadorClase,Visibilidad acceso) {
+	public DeclaracionClase(Declaracion declaraciones, SimboloLexico identificadorClase,Visibilidad visibilidad) {
 		this.declaraciones = declaraciones;
 		this.identificadorClase = identificadorClase;
-		this.acceso = acceso;
+		this.visibilidad = visibilidad;
 	}
 
 	/**
@@ -48,22 +45,19 @@ public class DeclaracionClase
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracionClase");
-		if(acceso != null){
-			raiz.add(acceso.getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Declaracion Clase");
+		if(visibilidad != null){
+			raiz.add(visibilidad.getArbolVisual());
 		}
 		if(identificadorClase != null){
-			raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorClase.getLexema()));
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorClase.getLexema()));
 		}
 		if(declaraciones != null){
 			raiz.add(declaraciones.getArbolVisual());
 		}
-		
 		return raiz;
 	}
-	
 
-	
 	//Getters and Setters
 	public Declaracion getDeclaraciones() {
 		return declaraciones;
@@ -81,15 +75,18 @@ public class DeclaracionClase
 		this.identificadorClase = identificadorClase;
 	}
 
-	public Visibilidad getAcceso() {
-		return acceso;
+	/**
+	 * @return the visibilidad
+	 */
+	public Visibilidad getVisibilidad() {
+		return visibilidad;
 	}
 
-	public void setAcceso(Visibilidad acceso) {
-		this.acceso = acceso;
+	/**
+	 * @param visibilidad the visibilidad to set
+	 */
+	public void setVisibilidad(Visibilidad visibilidad) {
+		this.visibilidad = visibilidad;
 	}
 
-	
-	
-	
 }

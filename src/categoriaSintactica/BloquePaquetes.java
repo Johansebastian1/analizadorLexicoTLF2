@@ -2,9 +2,8 @@ package categoriaSintactica;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
+
 /**
  * Clase que representa las incluciones del codigo
  * @author Mateo Toquica-Angie Maldonado
@@ -26,19 +25,18 @@ public class BloquePaquetes
 		this.paquete=paquete;
 	}
 
-	
-
 	/**
 	 * Metodo encargado de crear el arbol para la visualizacion a la hora de compilar
 	 * @return raiz,  El Arbol que representa esta categoria sintactica
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("paquete");
-		for (int i = 0; i < paquete.size(); i++) 
-		{
-			raiz.add(paquete.get(i).getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Paquete");
+		
+		for (Paquete iterable : paquete) {
+			raiz.add(iterable.getArbolVisual());
 		}
+		
 		return raiz;
 	}
 	
@@ -56,14 +54,14 @@ public class BloquePaquetes
 		return code;
 	}
 	
-	
 	//Getters and setters
-		public List<Paquete> getPaquete() {
-			return paquete;
-		}
+	public List<Paquete> getPaquete() {
+		return paquete;
+	}
 
-		public void setPaquete(ArrayList<Paquete> paquete) {
-			this.paquete = paquete;
-		}
+	public void setPaquete(ArrayList<Paquete> paquete) 
+	{
+		this.paquete = paquete;
+	}
 	
 }

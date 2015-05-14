@@ -1,13 +1,12 @@
 package categoriaSintactica;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
-import mundo.*;
+import mundo.SimboloLexico;
 
 /**
  * Clase que representa la categoria sintactica Declaración de clase
- * @author Carlos Daniel Londoño Torres - Camilo Andres Martinez Castaño - Jorge Hernan Castaño Barraza - Christian Giovani Cachaya 
+ * @author 
  *
  */
 public class DeclaracionFuncion 
@@ -15,7 +14,7 @@ public class DeclaracionFuncion
 	/**
 	 * Atributo que representa la clase
 	 */
-	private SimboloLexico identificadorfuncion;
+	private SimboloLexico identificadorFuncion;
 	
 	/**
 	 * Atributo de tipo parametro, que contiene los parametros
@@ -35,7 +34,7 @@ public class DeclaracionFuncion
 	/**
 	 * Atributo que representa las sentencias hechas en la funcion
 	 */
-	private BloqueSentencias Sentencias;
+	private BloqueSentencias sentencias;
 	
 	/**
 	 * Constructor de la clase declaración funcion
@@ -48,11 +47,11 @@ public class DeclaracionFuncion
 	public DeclaracionFuncion(Visibilidad visibilidad,SimboloLexico identificadorfuncion, Parametros parametros, SimboloLexico tipoRetorno,
 			 BloqueSentencias sentencias) 
 	{
-		this.identificadorfuncion = identificadorfuncion;
+		this.identificadorFuncion = identificadorfuncion;
 		this.parametros = parametros;
 		this.tipoRetorno = tipoRetorno;
 		this.visibilidad = visibilidad;
-		Sentencias = sentencias;
+		this.sentencias = sentencias;
 	}
 
 	/**
@@ -61,26 +60,34 @@ public class DeclaracionFuncion
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("declaracionfuncion");
-		raiz.add(visibilidad.getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Declaracion Funcion");
+		
+		if(visibilidad != null){
+			raiz.add(visibilidad.getArbolVisual());
+		}
+		
 		DefaultMutableTreeNode r=new DefaultMutableTreeNode("Tipo Retorno");
-		r.add(new DefaultMutableTreeNode("nombre:"+tipoRetorno.getLexema()));
-		raiz.add(r);
-		raiz.add(new DefaultMutableTreeNode("nombre:"+identificadorfuncion.getLexema()));
-		raiz.add(parametros.getArbolVisual());
-		raiz.add(Sentencias.getArbolVisual());
+		
+		if(tipoRetorno != null){
+			r.add(new DefaultMutableTreeNode("Nombre:" + tipoRetorno.getLexema()));
+			raiz.add(r);
+		}
+		
+		if(identificadorFuncion != null){
+			raiz.add(new DefaultMutableTreeNode("Nombre:" + identificadorFuncion.getLexema()));
+		}
+		
+		if(parametros != null){
+			raiz.add(parametros.getArbolVisual());
+		}
+		
+		if(sentencias != null){
+			raiz.add(sentencias.getArbolVisual());
+		}
+		
 		return raiz;
 	}	
 	
-	
-	public SimboloLexico getIdentificadorfuncion() {
-		return identificadorfuncion;
-	}
-
-	public void setIdentificadorfuncion(SimboloLexico identificadorfuncion) {
-		this.identificadorfuncion = identificadorfuncion;
-	}
-
 	public Parametros getParametros() {
 		return parametros;
 	}
@@ -104,14 +111,39 @@ public class DeclaracionFuncion
 		this.visibilidad = visibilidad;
 	}
 
+	/**
+	 * @return the identificadorFuncion
+	 */
+	public SimboloLexico getIdentificadorFuncion() {
+		return identificadorFuncion;
+	}
+
+	/**
+	 * @param identificadorFuncion the identificadorFuncion to set
+	 */
+	public void setIdentificadorFuncion(SimboloLexico identificadorFuncion) {
+		this.identificadorFuncion = identificadorFuncion;
+	}
+
+	/**
+	 * @return the sentencias
+	 */
 	public BloqueSentencias getSentencias() {
-		return Sentencias;
+		return sentencias;
 	}
 
+	/**
+	 * @param sentencias the sentencias to set
+	 */
 	public void setSentencias(BloqueSentencias sentencias) {
-		Sentencias = sentencias;
+		this.sentencias = sentencias;
 	}
 
+	/**
+	 * @param visibilidad the visibilidad to set
+	 */
+	public void setVisibilidad(Visibilidad visibilidad) {
+		this.visibilidad = visibilidad;
+	}
 
-	
 }

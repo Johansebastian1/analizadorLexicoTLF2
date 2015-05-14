@@ -42,7 +42,7 @@ public class UnidadCompilacion
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("unidadCompilacion");
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Unidad Compilacion");
 		
 		if (paquete != null) {
 

@@ -3,7 +3,6 @@ package categoriaSintactica;
 import java.util.ArrayList;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 
 /**
  * Clase representativa de la categoria sintactica Datos
@@ -32,11 +31,12 @@ public class Datos
 	 */
 	public DefaultMutableTreeNode getArbolVisual()
 	{
-		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("datos");
-		for (int i = 0; i < datos.size(); i++) 
-		{
-			raiz.add(datos.get(i).getArbolVisual());
+		DefaultMutableTreeNode raiz=new DefaultMutableTreeNode("Datos");
+		
+		for (Dato iterable : datos) {
+			raiz.add(iterable.getArbolVisual());
 		}
+			
 		return raiz;
 	}
 	
@@ -65,7 +65,4 @@ public class Datos
 		this.datos = datos;
 	}
 
-	
-	
-	
 }
